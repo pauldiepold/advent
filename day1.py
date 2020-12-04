@@ -1,4 +1,4 @@
-inputFile = open('1/input.txt', "r")
+inputFile = open('data/day1.txt', "r")
 
 years = inputFile.readlines()
 years = list(map(lambda x: int(x.replace('\n', '')), years))
