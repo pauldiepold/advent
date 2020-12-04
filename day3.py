@@ -15,7 +15,7 @@ result = 1
 for slope in slopes:
     counter = 0
     for i in range(len(trees))[0::slope[1]]:
-        if trees[i][(slope[0] * i) % len(trees[0])]:
+        if trees[i][(slope[0] * int(i / slope[1])) % len(trees[0])]:
             counter += 1
     print(counter)
     result = result * counter
