@@ -25,10 +25,8 @@ def isValid(passport):
     if not (len(passport['pid']) == 9 and all(c in string.digits for c in passport['pid'])):
         return False
 
-    hgt = passport['hgt']
-    if not ((hgt[-2:] == 'cm' and len(hgt) == 5 and 150 <= int(hgt[0:3]) <= 193) or
-            (hgt[-2:] == 'in' and len(hgt) == 4 and 59 <= int(hgt[0:2]) <= 76)):
-        print(hgt)
+    if not ((passport['hgt'][-2:] == 'cm' and len(passport['hgt']) == 5 and 150 <= int(passport['hgt'][0:3]) <= 193) or
+            (passport['hgt'][-2:] == 'in' and len(passport['hgt']) == 4 and 59 <= int(passport['hgt'][0:2]) <= 76)):
         return False
 
     return True
