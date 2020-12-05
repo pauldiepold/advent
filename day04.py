@@ -3,8 +3,7 @@ import re
 
 
 def keysPresent(passport):
-    fields = ('byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid',)
-    return all(key in passport for key in fields)
+    return all(key in passport for key in ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid'])
 
 
 def isValid(passport):
