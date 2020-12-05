@@ -15,4 +15,3 @@ print('Teil 1: ' + str(max_seat_id))
 for i in range(max_seat_id):
     if i - 1 in seats and not (i in seats) and i + 1 in seats:
         print('Teil 2: ' + str(i))
-
