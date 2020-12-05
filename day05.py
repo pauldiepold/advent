@@ -10,7 +10,6 @@ for boarding_pass in boarding_passes:
     seats.append(seat_id)
     max_seat_id = seat_id if seat_id > max_seat_id else max_seat_id
 
-seats.sort()
 for i in range(max_seat_id + 1):
     if i - 1 in seats and not (i in seats) and i + 1 in seats:
         print('Teil 2: ' + str(i))
