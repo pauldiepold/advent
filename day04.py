@@ -1,8 +1,10 @@
 import string
+import re
 
 
-def processInput(line):
-    return line.replace('\n', '').split()
+def keysPresent(passport):
+    fields = ('byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid',)
+    return all(key in passport for key in fields)
 
 
 def isValid(passport):
@@ -32,28 +34,8 @@ def isValid(passport):
     return True
 
 
-def keysPresent(passport):
-    fields = ('byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid',)
-    return all(key in passport for key in fields)
-
-
-inputFile = open('data/day04.txt', "r")
-rows = inputFile.readlines()
-rows = list(map(processInput, rows))
-
-passports = []
-currentPassport = []
-
-for row in rows:
-    if len(row) != 0:
-        currentPassport.extend(row)
-    else:
-        dic = {}
-        for item in currentPassport:
-            split = item.rsplit(':')
-            dic[split[0]] = split[1]
-        passports.append(dic)
-        currentPassport = []
+with open('./data/day04.txt') as file:
+    passports = [dict(x.split(':') for x in re.split(' |\n', line)) for line in file.read().split('\n\n')]
 
 counter1 = 0
 counter2 = 0
