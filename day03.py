@@ -4,7 +4,7 @@ def processInput(row):
     return row
 
 
-inputFile = open('data/day3.txt', "r")
+inputFile = open('data/day03.txt', "r")
 trees = inputFile.readlines()
 trees = list(map(processInput, trees))
 

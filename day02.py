@@ -1,4 +1,4 @@
-inputFile = open('data/day2.txt', "r")
+inputFile = open('data/day02.txt', "r")
 
 
 def seperateLines(line):

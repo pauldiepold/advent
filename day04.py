@@ -37,7 +37,7 @@ def keysPresent(passport):
     return all(key in passport for key in fields)
 
 
-inputFile = open('data/day4.txt', "r")
+inputFile = open('data/day04.txt', "r")
 rows = inputFile.readlines()
 rows = list(map(processInput, rows))
 
