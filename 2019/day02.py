@@ -27,5 +27,3 @@ with open('./data/day02.txt') as file:
 
 print('Teil 1:', run_program(program, 12, 2))
 print('Teil 2:', find_combination())
-
-
