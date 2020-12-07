@@ -12,14 +12,14 @@ print('Teil 1:', orbits)
 
 
 def find_path(child):
-    output = {}
+    path = {}
     parent = objects[child]
     count = 0
     while parent != 'COM':
         count += 1
         parent = objects[parent]
-        output[parent] = count
-    return output
+        path[parent] = count
+    return path
 
 
 my_path = find_path('YOU')
