@@ -14,10 +14,28 @@ for i in range(25, len(numbers)):
         print('Teil 1:', sum_found)
         break
 
-for k in range(len(numbers)):
-    contiguous_range = []
-    for j in range(k, len(numbers)):
-        contiguous_range.append(numbers[j])
-        if sum(contiguous_range) == sum_found:
-            print('Teil 2:', min(contiguous_range) + max(contiguous_range))
-            break
+# for k in range(len(numbers)):
+#     contiguous_range = 0
+#     for j in range(k, len(numbers)):
+#         contiguous_range += numbers[j]
+#         if contiguous_range == sum_found:
+#             print('Teil 2:', min(numbers[k:j]) + max(numbers[k:j]))
+#             break
+#     else:
+#         continue
+#     break
+
+# only 1 loop
+contiguous_range = []
+i = 0
+while i < len(numbers):
+    new = numbers[i]
+    if sum(contiguous_range) + new < sum_found:
+        i += 1
+        contiguous_range.append(new)
+    elif sum(contiguous_range) + new == sum_found:
+        contiguous_range.append(new)
+        print('Teil 2:', min(contiguous_range) + max(contiguous_range))
+        break
+    else:
+        contiguous_range.pop(0)
