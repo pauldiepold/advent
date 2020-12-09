@@ -20,5 +20,4 @@ for k in range(len(numbers)):
         contiguous_range.append(numbers[j])
         if sum(contiguous_range) == sum_found:
             print('Teil 2:', min(contiguous_range) + max(contiguous_range))
-            weakness_found = True
             break
