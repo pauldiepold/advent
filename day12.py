@@ -8,7 +8,7 @@ def move(part, actions, ship, direction):
 
     for action, value in actions:
         if action == 'F':
-            ship = ship + value * direction
+            ship += value * direction
         elif value == 180:
             direction *= -1
         elif action == 'R':
@@ -17,9 +17,9 @@ def move(part, actions, ship, direction):
             direction *= -1 * get_rot[value]
         else:
             if part - 1:
-                direction = direction + get_dir[action] * value
+                direction += get_dir[action] * value
             else:
-                ship = ship + get_dir[action] * value
+                ship += get_dir[action] * value
     return int(abs(ship.real) + abs(ship.imag))
 
 
