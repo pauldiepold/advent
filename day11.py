@@ -1,19 +1,16 @@
 import numpy as np
 
 with open('./data/day11.txt') as file:
-    floor_input = np.array([[int(position == '.') for position in row] for row in file.read().split('\n')]).astype(
+    inp = np.array([[int(position == '.') for position in row] for row in file.read().split('\n')]).astype(
         np.int)
 
-n_input = floor_input.shape[0]
-m_input = floor_input.shape[1]
-
-n = n_input if n_input >= m_input else m_input
+n = inp.shape[0] if inp.shape[0] >= inp.shape[1] else inp.shape[1]
 floor = np.ones((n, n)).astype(np.int)
-floor[:n_input, :m_input] = floor_input
+floor[:inp.shape[0], :inp.shape[1]] = inp
 
 R = (np.eye(n) + np.eye(n, n, 1) + np.eye(n, n, -1)).astype(np.int)
-seats = np.zeros(n).astype(np.int)
-seats_old = np.random.rand(n, n)
+seats = np.zeros((n, n)).astype(np.int)
+seats_old = np.ones((n, n)).astype(np.int)
 
 while not np.array_equal(seats, seats_old):
     neighbors = np.dot(np.dot(R, seats), R) - seats
