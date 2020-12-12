@@ -20,7 +20,7 @@ def move(part, actions, ship, direction):
                 direction = direction + get_dir[action] * value
             else:
                 ship = ship + get_dir[action] * value
-    return abs(ship.real) + abs(ship.imag)
+    return int(abs(ship.real) + abs(ship.imag))
 
 
 print('Teil 1:', move(1, actions, 0 + 0j, 1 + 0j))
