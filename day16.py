@@ -13,8 +13,8 @@ for name, value in rules_raw:
 all_rules = set([k for j in list(rules.values()) for k in j])
 
 tickets = np.array([np.array([int(d) for d in ticket.split(',')]) for ticket in data[2]])
+my_ticket = [int(d) for d in data[1][0].split(',')]
 
-print(rules)
 
 def is_invalid(d):
     return d not in all_rules
@@ -23,17 +23,14 @@ def is_invalid(d):
 print('Teil 1:', sum([d for ticket in tickets for d in ticket if is_invalid(d)]))
 
 valid_tickets = np.array([ticket for ticket in tickets if not any(is_invalid(d) for d in ticket)])
-rule_dict = {}
-found = True
-while len(rules) > 0 and found:
-    found = False
-    for i in range(len(rules)):
+result = 1
+while len(rules) > 0:
+    for i in range(len(valid_tickets[0])):
         candidates = [rule for rule, values in rules.items() if all(d in values for d in valid_tickets[:, i])]
-        print(valid_tickets[:, i], candidates)
-        # print(candidates)
         if len(candidates) == 1:
-            found = True
-            rule_dict[candidates[0]] = i
             rules.pop(candidates[0])
-            # print(i, candidates[0])
-print(rule_dict)
+            if candidates[0].startswith('departure'):
+                result *= my_ticket[i]
+            break
+
+print('Teil 2:', result)
