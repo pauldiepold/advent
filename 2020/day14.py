@@ -1,5 +1,5 @@
 def bitmask(input, mask):
-    input = list('{0:032b}'.format(input))
+    input = list('{0:036b}'.format(input))
     print("".join(input), int("".join(input), 2))
     print(mask)
     for idx, bit in enumerate(mask):
@@ -10,13 +10,13 @@ def bitmask(input, mask):
     return int("".join(input), 2)
 
 
-with open('./data/day14.txt') as file:
+with open('data/day14.txt') as file:
     lines = file.read().split('\n')
 
 memory = {}
 for line in lines:
     if line[:4] == 'mask':
-        mask = line[-32:]
+        mask = line[-36:]
     elif line[:3] == 'mem':
         current = [int(c) for c in line.replace('mem[', '').replace(']', '').replace('= ', '').split(' ')]
         memory[current[0]] = bitmask(current[1], mask)

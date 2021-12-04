@@ -1,4 +1,4 @@
-with open('./data/day05.txt') as file:
+with open('data/day05.txt') as file:
     boarding_passes = [''.join(str(int(c == 'B' or c == 'R')) for c in line) for line in file.read().split('\n')]
 
 max_seat_id = 0

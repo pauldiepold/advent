@@ -1,6 +1,6 @@
 from collections import Counter
 
-with open('./data/day10.txt') as file:
+with open('data/day10.txt') as file:
     numbers = [int(number) for number in file.read().split('\n')]
 
 numbers.append(0)

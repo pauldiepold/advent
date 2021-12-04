@@ -33,7 +33,7 @@ def isValid(passport):
     return True
 
 
-with open('./data/day04.txt') as file:
+with open('data/day04.txt') as file:
     passports = [dict(x.split(':') for x in re.split(' |\n', line)) for line in file.read().split('\n\n')]
 
 counter1 = 0

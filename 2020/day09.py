@@ -1,6 +1,6 @@
 from itertools import combinations
 
-with open('./data/day09.txt') as file:
+with open('data/day09.txt') as file:
     numbers = [int(number) for number in file.read().split('\n')]
 
 for i in range(25, len(numbers)):

@@ -1,4 +1,4 @@
-with open('./data/day13.txt') as file:
+with open('data/day13.txt') as file:
     timestamp = int(file.readline().strip())
     busses = [int(bus) for bus in file.readline().strip().split(',') if bus != 'x']
 
@@ -12,7 +12,7 @@ for bus in busses:
 print('Teil 1:', time_to_wait * bus_id)
 
 
-with open('./data/day13.txt') as file:
+with open('data/day13.txt') as file:
     timestamp = int(file.readline().strip())
     busses_input = [bus for bus in file.readline().strip().split(',')]
 

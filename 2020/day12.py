@@ -1,4 +1,4 @@
-with open('./data/day12.txt') as file:
+with open('data/day12.txt') as file:
     actions = [[row[0], int(row[1:])] for row in file.read().split('\n')]
 
 

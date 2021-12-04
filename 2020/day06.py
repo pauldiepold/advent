@@ -1,4 +1,4 @@
-with open('./data/day06.txt') as file:
+with open('data/day06.txt') as file:
     groups = file.read().split('\n\n')
 
 

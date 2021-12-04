@@ -1,6 +1,6 @@
 import numpy as np
 
-with open('./data/day11.txt') as file:
+with open('data/day11.txt') as file:
     inp = np.array([[int(position == '.') for position in row] for row in file.read().split('\n')])
 
 n = inp.shape[0] if inp.shape[0] >= inp.shape[1] else inp.shape[1]

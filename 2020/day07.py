@@ -21,7 +21,7 @@ def count(color, bags, f):
     return bags
 
 
-with open('./data/day07.txt') as file:
+with open('data/day07.txt') as file:
     lines = [rule.split(' bags contain ') for rule in file.read().split('\n')]
     rules = {color: process_data(contains) for color, contains in lines}
 

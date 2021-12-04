@@ -17,7 +17,7 @@ def run(program):
     return acc, False
 
 
-with open('./data/day08.txt') as file:
+with open('data/day08.txt') as file:
     instructions = [instruction.replace('+', '').split(' ') for instruction in file.read().split('\n')]
 
 print('Teil 1:', run(instructions)[0])
