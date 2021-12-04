@@ -1,6 +1,6 @@
 import numpy as np
 
-with open('./data/day16.txt') as file:
+with open('data/day16.txt') as file:
     data = [section.replace('your ticket:\n', '').replace('nearby tickets:\n', '').split('\n')
             for section in file.read().split('\n\n')]
 
