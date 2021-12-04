@@ -1,14 +1,18 @@
-inputFile = open('data/day01.txt', "r")
+# 22:40 - 22:47 Teil 1
+# 22:48 - 22:56 Teil 2
 
-years = inputFile.readlines()
-years = list(map(lambda x: int(x.replace('\n', '')), years))
+with open('data/day01.txt') as file:
+    lines = [int(x) for x in file.read().split('\n')]
 
-for i in range(len(years)):
-    for k in range(i, len(years)):
-        if years[i] + years[k] == 2020:
-            print('Teil 1:')
-            print(years[i] * years[k])
-        for j in range(k, len(years)):
-            if years[i] + years[k] + years[j] == 2020:
-                print('Teil 2:')
-                print(years[i] * years[k] * years[j])
+result1 = 0
+result2 = 0
+
+for index, measurement in enumerate(lines):
+    if index != 0 and measurement > lines[index - 1]:
+        result1 += 1
+
+    if index not in [0, 1, 2] and sum(lines[index - 3:index - 0]) < sum(lines[index - 2:index + 1]):
+        result2 += 1
+
+print(f'Teil 1: {result1}')
+print(f'Teil 2: {result2}')
