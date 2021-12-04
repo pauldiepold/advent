@@ -13,6 +13,7 @@ with open('data/day02.txt') as file:
 
 for line in lines:
     command, x = line
+
     result1 += directions[command] * x
 
     if command == 'down':
