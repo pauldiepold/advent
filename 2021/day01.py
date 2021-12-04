@@ -1,6 +1,3 @@
-# 22:40 - 22:47 Teil 1
-# 22:48 - 22:56 Teil 2
-
 with open('data/day01.txt') as file:
     lines = [int(x) for x in file.read().split('\n')]
 
