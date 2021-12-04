@@ -1,5 +1,3 @@
-import cmath
-
 directions = {
     'forward': complex(1, 0),
     'down': complex(0, 1),
@@ -14,14 +12,15 @@ with open('data/day02.txt') as file:
     lines = [[x.split(' ')[0], int(x.split(' ')[1])] for x in file.read().split('\n')]
 
 for line in lines:
-    result1 += directions[line[0]] * line[1]
+    command, x = line
+    result1 += directions[command] * x
 
-    if line[0] == 'down':
-        aim += line[1]
-    if line[0] == 'up':
+    if command == 'down':
+        aim += x
+    if command == 'up':
         aim -= line[1]
-    if line[0] == 'forward':
-        result2 += complex(line[1], aim * line[1])
+    if command == 'forward':
+        result2 += complex(x, aim * x)
 
 print(f'Part 1: {int(result1.real * result1.imag)}')
 print(f'Part 2: {int(result2.real * result2.imag)}')
