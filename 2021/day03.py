@@ -16,7 +16,30 @@ def bin2int(binary: list):
     return int("".join(str(x) for x in binary), 2)
 
 
-gamma = bin2int(gamma)
-epsilon = bin2int(epsilon)
+print(f'Part 1: {bin2int(gamma) * bin2int(epsilon)}')
 
-print(f'Part 1: {gamma * epsilon}')
+oxygen_list = lines.copy()
+
+
+def use_bit_criteria(numbers, type):
+    for bit in range(len(lines[0, :])):
+        bincount = np.bincount(numbers[:, bit])
+        if type == 'oxygen':
+            if bincount[0] == bincount[1]:
+                criteria = 1
+            else:
+                criteria = np.argmax(bincount)
+        else:
+            if bincount[0] == bincount[1]:
+                criteria = 0
+            else:
+                criteria = np.argmin(bincount)
+        numbers = numbers[np.in1d(numbers[:, bit], criteria)]
+
+        if len(numbers) == 1:
+            return numbers[0]
+
+
+oxygen_rating = bin2int(use_bit_criteria(lines.copy(), "oxygen"))
+co2_rating = bin2int(use_bit_criteria(lines.copy(), "co2"))
+print(f'Part 2: {oxygen_rating * co2_rating}')
