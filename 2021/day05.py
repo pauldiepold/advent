@@ -17,9 +17,9 @@ for line in lines:
 
         coords1[x_min:x_max + 1, y_min:y_max + 1] += 1
 
-    dx, dy = np.sign([x2 - x1, y2 - y1])
+    x_dir, y_dir = np.sign([x2 - x1, y2 - y1])
     for n in range(max(abs(x2 - x1), abs(y2 - y1)) + 1):
-        coords2[x1 + n * dx, y1 + n * dy] += 1
+        coords2[x1 + n * x_dir, y1 + n * y_dir] += 1
 
 print(f'Part 1:  {np.count_nonzero(coords1 > 1)}')
 print(f'Part 2:  {np.count_nonzero(coords2 > 1)}')
