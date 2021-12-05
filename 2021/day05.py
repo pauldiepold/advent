@@ -9,6 +9,7 @@ coords2 = np.copy(coords1)
 for line in lines:
     x1, y1, x2, y2 = line.flatten()
 
+    # Part 1
     if x1 == x2 or y1 == y2:
         x_min = min(x1, x2)
         x_max = max(x1, x2)
@@ -17,6 +18,7 @@ for line in lines:
 
         coords1[x_min:x_max + 1, y_min:y_max + 1] += 1
 
+    # Part 2
     x_dir, y_dir = np.sign([x2 - x1, y2 - y1])
     for n in range(max(abs(x2 - x1), abs(y2 - y1)) + 1):
         coords2[x1 + n * x_dir, y1 + n * y_dir] += 1
