@@ -4,24 +4,17 @@ import re
 
 class Board:
     def __init__(self, raw_board):
+        self.board = self.parse_input(raw_board)
         self.marked = np.zeros((5, 5), dtype=bool)
-        self.board = np.array(self.parse_input(raw_board))
         self.has_won = False
 
-    def parse_input(self, raw_board):
-        return [[int(x) for x in re.sub(' +', ' ', line).strip().split(' ')] for line in raw_board.split('\n')]
+    def parse_input(self, string):
+        return np.array([[int(x) for x in re.sub(' +', ' ', line).strip().split(' ')] for line in string.split('\n')])
 
     def mark_number(self, number):
-        indices = self.get_indices(number)
-        if indices is not False:
-            self.marked[indices[0], indices[1]] = True
-
-    def get_indices(self, number):
-        list_of_indices = np.argwhere(self.board == number)
-        if len(list_of_indices) == 1:
-            return list_of_indices[0]
-        else:
-            return False
+        indices = np.argwhere(self.board == number)
+        if len(indices) == 1:
+            self.marked[indices[0][0], indices[0][1]] = True
 
     def check_for_win(self):
         for x in range(5):
@@ -33,7 +26,7 @@ class Board:
 
 
 with open('data/day04.txt') as file:
-    lines = [x for x in file.read().split('\n\n')]
+    lines = [line for line in file.read().split('\n\n')]
 
 drawn_numbers = [int(x) for x in lines[0].split(',')]
 boards = [Board(b) for b in lines[1:]]
