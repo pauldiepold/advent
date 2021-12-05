@@ -1,7 +1,7 @@
 import numpy as np
 
 with open('data/day03.txt') as file:
-    lines = np.array([[int(bit) for bit in line] for line in file.read().split('\n')])
+    lines = np.array([[int(bit) for bit in line] for line in file.readlines()])
 
 gamma = []
 epsilon = []

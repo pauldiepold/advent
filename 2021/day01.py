@@ -1,5 +1,5 @@
 with open('data/day01.txt') as file:
-    lines = [int(x) for x in file.read().split('\n')]
+    lines = [int(x) for x in file.readlines()]
 
 result1 = 0
 result2 = 0

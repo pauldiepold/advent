@@ -1,7 +1,7 @@
 import numpy as np
 
 with open('data/day05.txt') as file:
-    lines = np.array([[[int(c) for c in y.split(',')] for y in line.split(' -> ')] for line in file.read().split('\n')])
+    lines = np.array([[[int(c) for c in y.split(',')] for y in line.split(' -> ')] for line in file.readlines()])
 
 coords1 = np.zeros((np.max(lines[:, :, 0]) + 1, np.max(lines[:, :, 1]) + 1))
 coords2 = np.copy(coords1)

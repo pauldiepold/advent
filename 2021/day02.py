@@ -1,5 +1,5 @@
 with open('data/day02.txt') as file:
-    lines = [[x.split(' ')[0], int(x.split(' ')[1])] for x in file.read().split('\n')]
+    lines = [[x.split(' ')[0], int(x.split(' ')[1])] for x in file.readlines()]
 
 directions = {
     'forward': complex(1, 0),
