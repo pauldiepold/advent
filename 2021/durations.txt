@@ -1,5 +1,0 @@
-Durations of each day
-
-Day 1: 7 - 8
-Day 2: 11 - 9
-Day 3: 10
