@@ -11,5 +11,5 @@ if __name__ == "__main__":
 
     initial_timers = [initial_states.count(i) for i in range(9)]
 
-    print(f'Part 1: {fish(initial_timers.copy(), 80)}')
-    print(f'Part 2: {fish(initial_timers.copy(), 256)}')
+    print(f'Part 1: {fish(initial_timers, 80)}')
+    print(f'Part 2: {fish(initial_timers, 256)}')
