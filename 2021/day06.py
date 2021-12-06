@@ -10,10 +10,8 @@ def fish(timers, days):
 
 if __name__ == "__main__":
     with open('data/day06.txt') as file:
-        input_state = np.bincount(np.array([int(c) for c in file.readline().split(',')]))
+        initial_timers = np.bincount([int(c) for c in file.readline().split(',')]).tolist() + [0] * 3
 
-    initial_timers = [0] * 10
-    initial_timers[:6] = input_state
-
+    print(initial_timers)
     print(f'Part 1: {fish(initial_timers.copy(), 80)}')
     print(f'Part 2: {fish(initial_timers.copy(), 256)}')
