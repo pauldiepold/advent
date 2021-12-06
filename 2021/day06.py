@@ -12,6 +12,5 @@ if __name__ == "__main__":
     with open('data/day06.txt') as file:
         initial_timers = np.bincount([int(c) for c in file.readline().split(',')]).tolist() + [0] * 3
 
-    print(initial_timers)
     print(f'Part 1: {fish(initial_timers.copy(), 80)}')
     print(f'Part 2: {fish(initial_timers.copy(), 256)}')
