@@ -11,12 +11,7 @@ for line in lines:
 
     # Part 1
     if x1 == x2 or y1 == y2:
-        x_min = min(x1, x2)
-        x_max = max(x1, x2)
-        y_min = min(y1, y2)
-        y_max = max(y1, y2)
-
-        coords1[x_min:x_max + 1, y_min:y_max + 1] += 1
+        coords1[min(x1, x2):max(x1, x2) + 1, min(y1, y2):max(y1, y2) + 1] += 1
 
     # Part 2
     x_dir, y_dir = np.sign([x2 - x1, y2 - y1])
