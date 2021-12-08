@@ -10,14 +10,9 @@ def part2(data):
         decoded = {}
         # 1, 4, 7 und 8 sind über die Länge eindeutig zuzuordnen
         for pattern in patterns:
-            if len(pattern) == 2:
-                decoded[1] = pattern
-            elif len(pattern) == 3:
-                decoded[7] = pattern
-            elif len(pattern) == 4:
-                decoded[4] = pattern
-            elif len(pattern) == 7:
-                decoded[8] = pattern
+            unique_lengths = {2: 1, 3: 7, 4: 4, 7: 8}
+            if len(pattern) in unique_lengths:
+                decoded[unique_lengths[len(pattern)]] = pattern
 
         # alle Segmente mit Länge 6 betrachten
         for pattern in patterns:
