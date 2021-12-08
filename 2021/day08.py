@@ -20,7 +20,7 @@ def part2(data):
                 # wenn 7 nicht enthalten ist --> 6
                 if not all_chars_contained(decoded[7], pattern):
                     decoded[6] = pattern
-                # wenn 4 nicht enthalten ist --> 9
+                # wenn 4 enthalten ist --> 9
                 elif all_chars_contained(decoded[4], pattern):
                     decoded[9] = pattern
                 # sonst muss es 0 sein
@@ -30,10 +30,10 @@ def part2(data):
         # alle Segmente mit Länge 5 betrachten
         for pattern in patterns:
             if len(pattern) == 5:
-                # wenn 1 nicht enthalten ist --> 3
+                # wenn 1 enthalten ist --> 3
                 if all_chars_contained(decoded[1], pattern):
                     decoded[3] = pattern
-                # wenn das pattern nicht in 9 ist --> 5
+                # wenn das pattern in 9 ist --> 5
                 elif all_chars_contained(pattern, decoded[9]):
                     decoded[5] = pattern
                 # sonst muss es 2 sein
