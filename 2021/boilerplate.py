@@ -8,7 +8,7 @@ def part2(data):
 
 if __name__ == "__main__":
     with open('data/day00.txt') as file:
-        lines = [line for line in file.readlines()]
+        lines = [line for line in file.read().split('\n')]
 
     print(f'Part 1: {part1(lines)}')
     print(f'Part 2: {part2(lines)}')
