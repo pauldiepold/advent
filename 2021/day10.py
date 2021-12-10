@@ -1,9 +1,9 @@
 def navigation(data):
     match = {'(': ')', '[': ']', '{': '}', '<': '>'}
-    scores1 = {')': 3, ']': 57, '}': 1197, '>': 25137}
-    scores2 = {'(': 1, '[': 2, '{': 3, '<': 4}
+    points1 = {')': 3, ']': 57, '}': 1197, '>': 25137}
+    points2 = {'(': 1, '[': 2, '{': 3, '<': 4}
     result1 = 0
-    autocomplete_scores = []
+    scores = []
 
     for line in data:
         stack = []
@@ -13,17 +13,17 @@ def navigation(data):
                 stack.append(c)
             else:
                 if c != match[stack.pop()]:
-                    result1 += scores1[c]
+                    result1 += points1[c]
                     corrupted = True
 
         if not corrupted:
             score = 0
             for c in stack[::-1]:
                 score *= 5
-                score += scores2[c]
-            autocomplete_scores.append(score)
+                score += points2[c]
+            scores.append(score)
 
-    result2 = sorted(autocomplete_scores)[int(len(autocomplete_scores) / 2)]
+    result2 = sorted(scores)[int(len(scores) / 2)]
 
     return result1, result2
 
