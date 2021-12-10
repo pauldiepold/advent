@@ -1,5 +1,4 @@
 def part1(data):
-    opening = ['(', '[', '{', '<']
     match = {'(': ')', '[': ']', '{': '}', '<': '>'}
     scores1 = {')': 3, ']': 57, '}': 1197, '>': 25137}
     scores2 = {'(': 1, '[': 2, '{': 3, '<': 4}
@@ -10,7 +9,7 @@ def part1(data):
         stack = []
         corrupted = False
         for c in line:
-            if c in opening:
+            if c in match:
                 stack.append(c)
             else:
                 if c != match[stack.pop()]:
