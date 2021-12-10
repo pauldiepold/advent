@@ -1,4 +1,4 @@
-def part1(data):
+def navigation(data):
     match = {'(': ')', '[': ']', '{': '}', '<': '>'}
     scores1 = {')': 3, ']': 57, '}': 1197, '>': 25137}
     scores2 = {'(': 1, '[': 2, '{': 3, '<': 4}
@@ -32,6 +32,4 @@ if __name__ == "__main__":
     with open('data/day10.txt') as file:
         lines = [[c for c in line] for line in file.read().split('\n')]
 
-    res1, res2 = part1(lines)
-    print(f'Part 1: {res1}')
-    print(f'Part 2: {res2}')
+    print(navigation(lines))
