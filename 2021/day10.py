@@ -13,8 +13,7 @@ def part1(data):
             if c in opening:
                 stack.append(c)
             else:
-                popped = stack.pop()
-                if c != match[popped]:
+                if c != match[stack.pop()]:
                     result1 += scores1[c]
                     corrupted = True
 
@@ -25,7 +24,7 @@ def part1(data):
                 score += scores2[c]
             autocomplete_scores.append(score)
 
-    result2 = sorted(autocomplete_scores)[int((len(autocomplete_scores) - 1) / 2)]
+    result2 = sorted(autocomplete_scores)[int(len(autocomplete_scores) / 2)]
 
     return result1, result2
 
