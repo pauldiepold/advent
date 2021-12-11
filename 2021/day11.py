@@ -7,15 +7,14 @@ def octopussies(energy):
     result1, result2 = 0, 0
 
     for n in range(99999):
-        flashed = np.zeros(energy.shape, dtype=int)
+        flashed = np.zeros(energy.shape)
         energy += 1
         while True:
-            flashes = (energy > 9).astype(int)
-            flashes -= flashed
+            flashes = (energy > 9) - flashed
             flashed += flashes
-            if not np.any(flashes):
+            if not flashes.any():
                 break
-            increments = (np.matmul(np.matmul(r, flashes), r) - flashes).astype(int)
+            increments = r @ flashes @ r - flashes
             energy += increments
 
         energy[flashed != 0] = 0
@@ -23,7 +22,7 @@ def octopussies(energy):
         if n < 100:
             result1 += np.count_nonzero(flashed)
 
-        if np.all(flashed):
+        if flashed.all():
             result2 = n + 1
             break
 
@@ -32,6 +31,6 @@ def octopussies(energy):
 
 if __name__ == "__main__":
     with open('data/day11.txt') as file:
-        lines = np.array([[int(x) for x in line] for line in file.read().split('\n')])
+        lines = np.array([[float(x) for x in line] for line in file.read().split('\n')])
 
     print(octopussies(lines))
