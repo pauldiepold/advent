@@ -4,11 +4,11 @@ import numpy as np
 def octopussies(energy):
     n = len(energy)
     e = np.eye(n, n + 1)
-    r = np.eye(n, n) + e[:, 1:] + np.transpose(e[:, 1:])
+    r = np.eye(n, n) + e[:, 1:] + e[:, 1:].T
     result1, result2 = 0, 0
 
     for i in range(99999):
-        flashed = np.zeros(energy.shape)
+        flashed = np.zeros((n, n))
         energy += 1
         while True:
             flashes = (energy > 9) - flashed
