@@ -9,12 +9,11 @@ def octopussies(energy):
 
     for i in range(99999):
         flashed = np.zeros((n, n))
+        flashes = np.ones((n, n))
         energy += 1
-        while True:
+        while flashes.any():
             flashes = (energy > 9) - flashed
             flashed += flashes
-            if not flashes.any():
-                break
             increments = r @ flashes @ r - flashes
             energy += increments
 
